@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class Player extends AppCompatActivity implements View.OnClickListener, MediaPlayer.OnCompletionListener {
 
 //    Ativity id
-    ImageView backPlayer,more;
+    ImageView backPlayer,more,timerButton;
     Button playBtn,pauseBtn,nxtBtn,prvBtn,allSong;
     SeekBar seekBar;
     TextView starTextTime,totalTextTime,songTitle;
@@ -54,6 +54,7 @@ public class Player extends AppCompatActivity implements View.OnClickListener, M
         nxtBtn = findViewById(R.id.next);
         prvBtn = findViewById(R.id.previous);
         allSong = findViewById(R.id.allsong);
+        timerButton =findViewById(R.id.timer);
 //        Song Title
         songTitle = findViewById(R.id.songTitle);
 
@@ -68,6 +69,14 @@ public class Player extends AppCompatActivity implements View.OnClickListener, M
         playBtn.setVisibility(View.GONE);
         pauseBtn.setVisibility(View.VISIBLE);
 
+//        TimerButton Code Start Here
+        timerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toast("Timer Button for Sleep time");
+            }
+        });
+//        TimerButton Code End Here
 //        Pause Button Code Start here
         pauseBtn.setOnClickListener(new View.OnClickListener() {
             @Override

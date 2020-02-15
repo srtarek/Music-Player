@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<File> mySongs;
 
+    ImageView moreButton,backButton;
+
 //    Mani Body Code Start Here
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,25 @@ public class MainActivity extends AppCompatActivity {
         this.getSupportActionBar().hide();
 
         lv = findViewById(R.id.lvlist);
+        moreButton = findViewById(R.id.more);
+        backButton = findViewById(R.id.back);
 
+//        More Botton Code Start Here
+        moreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toast("More Button");
+            }
+        });
+//        More Botton Code End Here
+//        Back Button Code Start
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toast("Back Button");
+            }
+        });
+//        Back Button Code End
         mySongs = findSongs(Environment.getExternalStorageDirectory());
         items = new String[mySongs.size()];
         for (int i=0;i<mySongs.size();i++){

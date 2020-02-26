@@ -18,6 +18,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import me.itangqi.waveloadingview.WaveLoadingView;
+
 public class Player extends AppCompatActivity implements View.OnClickListener, MediaPlayer.OnCompletionListener {
 
 //    Ativity id
@@ -25,6 +27,8 @@ public class Player extends AppCompatActivity implements View.OnClickListener, M
     Button playBtn,pauseBtn,nxtBtn,prvBtn,allSong;
     SeekBar seekBar;
     TextView starTextTime,totalTextTime,songTitle;
+
+    WaveLoadingView waveLoadingView;
 
     String[] items;
 
@@ -60,6 +64,9 @@ public class Player extends AppCompatActivity implements View.OnClickListener, M
 
         starTextTime = findViewById(R.id.startText);
         totalTextTime = findViewById(R.id.totalText);
+        waveLoadingView = findViewById(R.id.waveLoadingView);
+//        waveLoadingView Progress Value
+        waveLoadingView.setProgressValue(0);
 
         playBtn.setOnClickListener(this);
         pauseBtn.setOnClickListener(this);
@@ -103,6 +110,7 @@ public class Player extends AppCompatActivity implements View.OnClickListener, M
 //        Back Button End Code
 //        SeekBar Code Start Here
         seekBar = findViewById(R.id.seekBar);
+
         updateSeekBar = new Thread(){
             @Override
             public void run() {
